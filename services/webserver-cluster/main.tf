@@ -198,7 +198,7 @@ data "terraform_remote_state" "db" {
     }
 }
 
-local {
+locals {
   http_port = 80
   any_port  = 0
   any_protocol = "-1"
