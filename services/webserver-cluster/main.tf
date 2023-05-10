@@ -102,24 +102,20 @@ resource "aws_security_group" "alb-sg" {
 resource "aws_security_group_rule" "allow_http_inbound" {
   type              = "ingress"
   security_group_id = aws_security_group.alb-sg.id
-  # Allow inbound HTTP requests 
-  ingress {
-    from_port     = local.any_port
-    to_port       = local.any_port
+  # Allow inbound HTTP requests
+    from_port     = local.http_port
+    to_port       = local.http_port
     protocol      = local.tcp_protocol
     cidr_blocks   = local.all_ips
-  }
 }
 resource "aws_security_group_rule" "allow_all_outbound" {
   type              = "egress"
   security_group_id = aws_security_group.alb-sg.id
   # Allow all outbount requests 
-  egress {
     from_port     = local.any_port
     to_port       = local.any_port
     protocol      = local.tcp_protocol
     cidr_blocks   = local.all_ips
-  }
 }
 
 # Autoscaling group target group
