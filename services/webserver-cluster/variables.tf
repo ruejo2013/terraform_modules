@@ -22,7 +22,7 @@ variable "db_remote_bucket" {
   type        = string
 }
 
-variable "db_rmote_state_key" {
+variable "db_remote_state_key" {
   description = "The path for the db remote state file in s3"
   type        = string
 }
